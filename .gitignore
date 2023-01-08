@@ -1,0 +1,18 @@
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+##pycache
+__pycache__/
+
+## User auth token
+__GITHUB__.py
+
+## Output data
+output/
+*.tar.gz
+.DS_Store
+
