@@ -64,14 +64,15 @@ def _getFolderMetaSettings(in_folder, req_names, opt_names=None):
     return settings
 
 #--------------------------------------------------------------------------------------------------
-# generate xml for a course
+# generate xml for a library
 def writeXmlForRoot():
     # create a file in the root folder
     
     # ----  ----  ----
-    # <course url_name="1234" org="abc" course="online101"/>
+    # <library url_name="library" xblock-family="xblock.v1" display_name="ZZZZZ Exam" org="Exoscale" library="zzzzzXLib"/>
     # ----  ----  ----
 
+  
     print("writing root xml")
 
     # get settings
@@ -84,23 +85,23 @@ def writeXmlForRoot():
         return
 
     # create xml
-    course_tag = etree.Element("course")
+    library_tag = etree.Element("library")
     for key in settings:
-        course_tag.set(key, settings[key])
-    result = etree.tostring(course_tag, pretty_print=True)
+        library_tag.set(key, settings[key])
+    result = etree.tostring(library_tag, pretty_print=True)
 
     # write the file
-    root_xml_out_path = os.path.join(sys.argv[2], 'course.xml')
+    root_xml_out_path = os.path.join(sys.argv[2], 'library.xml')
     with open(root_xml_out_path, 'wb') as fout:
         fout.write(result)
 
-    # return the url_name, this is needed for the next level, the filename for course
+    # return the url_name, this is needed for the next level, the filename for library
     return settings['url_name']
 
 #--------------------------------------------------------------------------------------------------
-# generate xml for a course
-def writeXmlForCourse(in_folder, filename, sections):
-    # create a file in the 'course' folder
+# generate xml for a library
+def writeXmlForLibrary(in_folder, filename, sections):
+    # create a file in the 'library' folder
 
     # ----  ----  ----
     # <course cert_html_view_enabled="true" display_name="My Course: Part1" language="en" 
@@ -112,7 +113,7 @@ def writeXmlForCourse(in_folder, filename, sections):
     # </course>
     # ----  ----  ----
 
-    print("writing course xml")
+    print("writing library xml")
 
     if not sections:
         print(WARNING, 'There seem to be no sections:', in_folder)
@@ -120,30 +121,26 @@ def writeXmlForCourse(in_folder, filename, sections):
 
     # get settings
     settings = _getFolderMetaSettings(
-        in_folder, _edx_consts.COURSE_FOLDER_REQ, _edx_consts.COURSE_FOLDER_OPT)
+        in_folder, _edx_consts.LIB_FOLDER_REQ, _edx_consts.LIB_FOLDER_OPT)
 
     # check we have settings
     if not settings:
-        print(WARNING, 'There seem to be no settings for course folder:', in_folder)
+        print(WARNING, 'There seem to be no settings for library folder:', in_folder)
         return
 
     # create xml
-    course_tag = etree.Element("course")
+    library_tag = etree.Element("library")
     for key in settings:
-        if not key in ['wiki_slug']:
-            course_tag.set(key, settings[key])
+        library_tag.set(key, settings[key])
     for section in sections:
         chapter_tag = etree.Element("chapter")
         chapter_tag.set('url_name', section)
-        course_tag.append(chapter_tag)
-    if 'wiki_slug' in settings:
-        wiki_tag = etree.Element("wiki")
-        wiki_tag.set('slug', settings['wiki_slug'])
-        course_tag.append(wiki_tag)
-    result = etree.tostring(course_tag, pretty_print = True)
+        library_tag.append(chapter_tag)
+
+    result = etree.tostring(library_tag, pretty_print = True)
 
     # write the file
-    xml_out_path = os.path.join(sys.argv[2], _edx_consts.COURSE_FOLDER, filename + '.xml')
+    xml_out_path = os.path.join(sys.argv[2], _edx_consts.LIB_FOLDER, filename + '.xml')
     with open(xml_out_path, 'wb') as fout:
         fout.write(result)
 

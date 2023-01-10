@@ -28,49 +28,30 @@ import __SETTINGS__
 # Text strings
 WARNING = "      WARNING:"
 
-# --------------------------------------------------------------------------------------------------
-# write the image to the assets folder
-# returns void
-def writeAsset(component_path, component, unit_filename):
-
-    # copy the image to the assets folder
-
-    out_path = os.path.join(
-        sys.argv[2], _edx_consts.STATIC_FOLDER, unit_filename + "_" + component
-    )
-
-    shutil.copyfile(component_path, out_path)
-
 
 # --------------------------------------------------------------------------------------------------
-# process one course
+# process one library
 def processLibrary():
 
     # get the main mooc input folder, which we assume is the first folder
     root_folder = os.path.normpath(sys.argv[1])
-    course_path = os.path.join(root_folder, "Course")
+    library_path = os.path.join(root_folder, "Library")
 
     # make the folders inside the output folder
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COURSE_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.SECTION_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.SUBSECTION_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.UNIT_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_HTML_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_VIDS_FOLDER))
+    os.mkdir(os.path.join(sys.argv[2], _edx_consts.LIB_FOLDER))
     os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_PROBS_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.STATIC_FOLDER))
     os.mkdir(os.path.join(sys.argv[2], _edx_consts.POLICIES_FOLDER))
 
     # create the root xml file
-    course_filename = _write_structure.writeXmlForRoot()
+    library_filename = _write_structure.writeXmlForRoot()
 
     # copy policies
-    _copy_policies.copyPolicies(course_filename)
+    _copy_policies.copyPolicies(library_filename)
 
     # main loop
     sections = []
 
-    for [section, section_path] in _util.getSubFolders(course_path):
+    for [section, section_path] in _util.getSubFolders(library_path):
         print("- section", section)
         section_filename = section.lower()
         sections.append(section_filename)
@@ -116,7 +97,7 @@ def processLibrary():
 
         _write_structure.writeXmlForSection(section_path, section_filename, subsections)
 
-    _write_structure.writeXmlForCourse(course_path, course_filename, sections)
+    _write_structure.writeXmlForLibrary(library_path, library_filename, sections)
 
 
 # --------------------------------------------------------------------------------------------------

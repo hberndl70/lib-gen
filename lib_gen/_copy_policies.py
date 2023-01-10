@@ -9,10 +9,10 @@ WARNING = "      WARNING:"
 
 #--------------------------------------------------------------------------------------------------
 # copy policies to the correct folder
-def copyPolicies(course_filename):
+def copyPolicies(library_filename):
 
     # create the subfolder in the policies folder
-    policy_subfolder = os.path.join(sys.argv[2], _edx_consts.POLICIES_FOLDER, course_filename)
+    policy_subfolder = os.path.join(sys.argv[2], _edx_consts.POLICIES_FOLDER, library_filename)
     os.mkdir(policy_subfolder)
 
     # policy.json
