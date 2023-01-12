@@ -37,6 +37,9 @@ FIGCAPTION_CSS = ";".join(
     ]
 )
 
+# --------------------------------------------------------------------------------------------------
+# Settings for images
+
 IMAGE_MODAL_CSS = ";".join(
     [
         "border-style: none",
@@ -50,6 +53,9 @@ IMAGE_CSS = ";".join(
         "border-width: 1px",
     ]
 )
+
+# --------------------------------------------------------------------------------------------------
+# Settings for code blocks
 
 CODE_INLINE_CSS = ";".join(
     [
