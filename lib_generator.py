@@ -51,14 +51,8 @@ def processLibrary():
     course_path = os.path.join(root_folder, "Course")
 
     # make the folders inside the output folder
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COURSE_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.SECTION_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.SUBSECTION_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.UNIT_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_HTML_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_VIDS_FOLDER))
+    os.mkdir(os.path.join(sys.argv[2], _edx_consts.LIB_FOLDER))
     os.mkdir(os.path.join(sys.argv[2], _edx_consts.COMP_PROBS_FOLDER))
-    os.mkdir(os.path.join(sys.argv[2], _edx_consts.STATIC_FOLDER))
     os.mkdir(os.path.join(sys.argv[2], _edx_consts.POLICIES_FOLDER))
 
     # create the root xml file
@@ -98,12 +92,6 @@ def processLibrary():
                         )
                         for [unit_comp_filename, unit_comp_type] in unit_comps:
                             comps.append([unit_comp_filename, unit_comp_type])
-
-                    # put assets in static folder of zip
-                    elif filex in __SETTINGS__.EDX_ASSET_EXT:
-                        # this is an asset that needs to get copied to the STATIC folder
-                        writeAsset(filepath, filename, unit_filename)
-
                     else:
                         pass
                         # could be any other file, just ignore and continue
