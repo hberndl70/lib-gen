@@ -17,9 +17,9 @@ print('\n')
 # TESTING SETUP
 # constant defined as string with absolute path + filename 
 # -----------------------------------------------------------------------------
-FILE_MD  = "/Users/hansberndl/_tst/md2xml/test.md"
-FILE_HTM = "/Users/hansberndl/_tst/md2xml/test.html"
-FILE_XML = "/Users/hansberndl/_tst/md2xml/test.xml"
+FILE_MD  = "/Users/hansberndl/_git/lib-gen/input/test.md"
+FILE_HTM = "/Users/hansberndl/_git/lib-gen/output/test.html"
+FILE_XML = "/Users/hansberndl/_git/lib-gen/output/test.xml"
 # -----------------------------------------------------------------------------
 
 markdown_file = "" + FILE_MD
