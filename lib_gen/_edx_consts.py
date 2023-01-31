@@ -3,11 +3,8 @@
 
 # Folder names for writing output
 LIB_FOLDER              = "library"         # library folder
-COMP_FOLDER             = "problem"         # library components folders
 
 # Folder names for writing components
-COMP_HTML_FOLDER        = "html"
-COMP_VIDS_FOLDER        = "video"
 COMP_PROBS_FOLDER       = "problem"
 
 # Folder for policies
@@ -33,12 +30,6 @@ COMP_FOLDER_OPT         = ['visible_to_staff_only', 'start']
 
 #--------------------------------------------------------------------------------------------------
 # Metadata settings for components
-
-COMP_HTML_REQ           = ['type']
-COMP_HTML_OPT           = ['display_name', 'visible_to_staff_only', 'start']
-
-COMP_VIDEO_REQ          = ['type']
-COMP_VIDEO_OPT          = ['video_filename', 'display_name', 'visible_to_staff_only', 'start', 'download_video', 'show_captions', 'sub', 'youtube_id_1_0']
 
 COMP_PROB_QUIZ_REQ      = ['type']
 COMP_PROB_QUIZ_OPT      = ['display_name', 'visible_to_staff_only', 'id', 'verified_only', 'start', 'max_attempts', 'weight', 'showanswer', 'group_access', 'rerandomize', 'attempts_before_showanswer_button']
@@ -66,12 +57,8 @@ METADATA_ENUMS          = {
     'type':                     ['html', 'video', 'problem-checkboxes'],
     'rerandomize':              ["always", "never", "onreset", "per_student"],
     'showanswer':               ["always", "never", "answered", "attempted", "closed", "finished", "past_due", "correct_or_past_due", "after_attempts"]
-    # more types: [ 'problem-submit', 'problem-choice', 'problem-dropdown', 'problem-numerical', 'problem-text', 'problem-multiplechoice',  'final-project', 'discussion']
 }
 
 #--------------------------------------------------------------------------------------------------
-MD_SNIPPET_MARKERS      = [
-    '# ROOT', '# MOOC', '# COURSE', '# SECTION', '# SUBSECTION', 
-    '# UNIT', '# COMPONENT'] 
-    # , '# HTML', '# VIDEO', '# PROBLEM-SUBMIT', '# PROBLEM-CHECKBOX']
+MD_SNIPPET_MARKERS      = ['# ROOT', '# MOOC', '# LIBRARY', '# PROBLEM-CHECKBOX']
 #--------------------------------------------------------------------------------------------------
