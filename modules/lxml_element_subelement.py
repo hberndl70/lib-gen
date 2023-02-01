@@ -15,13 +15,12 @@ problem.set ("show_reset_button", SHOW_RES_BTN)
 problem.set ("showanswer", SHOWANSWER)
 problem.set ("weight", WEIGHT)
 
-
 choiceresponse = etree.SubElement(problem, "choiceresponse")
 
 label = etree.SubElement(choiceresponse, "label")
 para = etree.SubElement(label, "p")
 
-para.XML("How can you scale the Deployment <code>hello-world</code> from 2 to 3?")
+para.text = "How can you scale the Deployment <code>hello-world</code> from 2 to 3?"
 
 descritpion = etree.SubElement(choiceresponse, "description")
 descritpion.text = "Please select all applicable options from the list below. Multiple selections are allowed."
@@ -44,6 +43,7 @@ choice = etree.SubElement(checkboxgroup, "choice")
 choice.text = "Using it as storage under a database server."
 choice.set ("correct", "false")
 
+print('\n')
 etree.dump(problem)
 
 # ----------------------------------------------------------------------------------------------------------------------------
