@@ -2,7 +2,7 @@
 # m2x 
 # markdown to xml converter for the edx library generator (lib-gen)
 # -----------------------------------------------------------------------------
-import time
+# import time
 from modules import _iof
 from modules import _par 
 
