@@ -8,7 +8,7 @@ DESCRIPTION     = 'Please select all applicable options from the list below. Mul
 CHOICE_OPEN     = '<choice '
 CHOICE_CLOSE    = '</choice>'
 
-FILE_XML = "/Users/hansberndl/_tst/md2xml/output/test.xml"
+FILE_XML = "/Users/hansberndl/_git/lib-gen/output/test.xml"
 xml_file      = "" + FILE_XML
 
 def Display_Name(v):

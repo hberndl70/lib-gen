@@ -15,8 +15,8 @@ from modules import _par
 # TESTING SETUP
 # constant defined as string with absolute path + filename 
 # -----------------------------------------------------------------------------
-FILE_MD  = "/Users/hansberndl/_tst/md2xml/input/test.md"
-FILE_HTM = "/Users/hansberndl/_tst/md2xml/output/test.html"
+FILE_MD  = "/Users/hansberndl/_git/lib-gen/input/test.md"
+FILE_HTM = "/Users/hansberndl/_git/lib-gen/output/test.html"
 # -----------------------------------------------------------------------------
 markdown_file = "" + FILE_MD
 html_file     = "" + FILE_HTM
