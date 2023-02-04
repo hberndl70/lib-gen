@@ -8,7 +8,7 @@ DESCRIPTION     = 'Please select all applicable options from the list below. Mul
 CHOICE_OPEN     = '<choice '
 CHOICE_CLOSE    = '</choice>'
 
-FILE_XML = "/Users/hansberndl/_git/lib-gen/output/test.xml"
+FILE_XML = '/Users/hansberndl/_git/lib-gen/output/test.xml'
 xml_file      = "" + FILE_XML
 
 def Display_Name(v):
@@ -35,9 +35,9 @@ def Correct_Tag(v):
 
 def Check_RoW(v):
     if v[0:3] == '[ ]':
-        return "false"
+        return 'false'
     else:
-        return "true"
+        return 'true'
 
 def Build_Label(txt_lbl):
     txt_label = LABEL_OPEN + txt_lbl + LABEL_CLOSE
@@ -61,11 +61,11 @@ def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block2)
@@ -88,11 +88,11 @@ def Block_3(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3):
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block3)
@@ -117,11 +117,11 @@ def Block_4(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4):
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block4)
@@ -148,11 +148,11 @@ def Block_5(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5):
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block5)
@@ -181,11 +181,11 @@ def Block_6(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block6)
@@ -216,11 +216,11 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
                 )
             ),
             Display_Name(disp_name),
-            Markdown("null"),
-            Max_Attempts("1"),
-            Show_Reset_Button("false"),
-            ShowAnswer("never"),
-            Weight("1.0")
+            Markdown('null'),
+            Max_Attempts('1'),
+            Show_Reset_Button('false'),
+            ShowAnswer('never'),
+            Weight('1.0')
         )
     )
     etree.dump(block7)
@@ -228,8 +228,8 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
     _iof.Write_XML(xml_block, xml_file)
 
 # def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
-#     row_ch1 = Check_RoW(txt_ch1)      <-- checking for the choice value [ ] = "false" [x] = "true"
-#     row_ch2 = Check_RoW(txt_ch2)      <-- checking for the choice value [ ] = "false" [x] = "true"
+#     row_ch1 = Check_RoW(txt_ch1)      <-- checking for the choice value [ ] = 'false' [x] = 'true'
+#     row_ch2 = Check_RoW(txt_ch2)      <-- checking for the choice value [ ] = 'false' [x] = 'true'
 #     block2 = (
 #         E.problem(
 #             E.choiceresponse(
@@ -241,11 +241,11 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
 #                 )
 #             ),
 #             Display_Name(disp_name),
-#             Markdown("null"),
-#             Max_Attempts("1"),
-#             Show_Reset_Button("false"),
-#             ShowAnswer("never"),
-#             Weight("1.0")
+#             Markdown('null'),
+#             Max_Attempts('1'),
+#             Show_Reset_Button('false'),
+#             ShowAnswer('never'),
+#             Weight('1.0')
 #         )
 #     )
 #     etree.dump(block2)
