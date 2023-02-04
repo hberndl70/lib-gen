@@ -3,7 +3,7 @@
 
 mkdir output
 
-edx_gen="../edx-gen/lib_generator.py"
+edx_gen="../edx-gen/lib_gen.py"
 input="./input"
 output="./output"
 

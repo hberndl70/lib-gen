@@ -1,5 +1,5 @@
 import os
-import __SETTINGS__
+# import __SETTINGS__
 
 #--------------------------------------------------------------------------------------------------
 # get all the sub folders in a folder

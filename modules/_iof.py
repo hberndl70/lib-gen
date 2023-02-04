@@ -1,8 +1,6 @@
 # --------------------------------------------------------------
-# file IO for HTML/XML to/from disk
+# file I/O for HTML/XML to/from disk
 # --------------------------------------------------------------
-from lxml import html
-from lxml import etree
 
 # --------------------------------------------------------------
 # read HTML from file
@@ -11,10 +9,10 @@ from lxml import etree
 # and reads it into a string (html_text) which 
 # is returned by the function
 # --------------------------------------------------------------
-def read_html(html_file):
-	with open(html_file, 'r', encoding='utf-8') as inp:
-		html_text = html.fromstring(inp.read())
-	return html_text
+def Read_HTML(html_file):
+	f = open(html_file, 'r', encoding='utf-8')
+	html_read = f.read()
+	return html_read
 
 # --------------------------------------------------------------
 # write HTML to file
@@ -22,8 +20,8 @@ def read_html(html_file):
 # functions takes a string with the HTML text and 
 # a filename for writing the HTML text to a file on the disk 
 # --------------------------------------------------------------
-def write_html(html_text, html_file):
-    with open(html_file, 'w') as f:
+def Write_HTML(html_text, html_file):
+    with open(html_file, 'w', encoding='utf-8') as f:
         f.write(html_text)
 
 # --------------------------------------------------------------
@@ -32,7 +30,6 @@ def write_html(html_text, html_file):
 # functions takes a string with the XML text and 
 # a filename for writing the XML text to a file on the disk 
 # --------------------------------------------------------------
-def write_xml(xml_text, xml_file):
-	with open(xml_file, 'wb') as out:
-		out.write(etree.tostring(xml_text))
-
+def Write_XML(xml_text, xml_file):
+	with open(xml_file, 'ab') as f:
+		f.write(xml_text)
