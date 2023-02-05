@@ -23,8 +23,6 @@ def Create_DIR(path):
 def Delete_DIR(path):
 	if os.path.exists(path):
 		subprocess.run(["rm", "-rf", path])
-	else:
-		print('path ' + path + 'do not exist!')
 
 # --------------------------------------------------------------
 # copy policy file (assets.json) into the policies folder
@@ -32,8 +30,6 @@ def Delete_DIR(path):
 def Copy_POL(file, path):
 	if os.path.exists(path):
 		subprocess.run(["cp", file, path])
-	else:
-		print('path ' + path + 'do not exist!')
 		
 # --------------------------------------------------------------
 # read HTML from file
@@ -66,3 +62,15 @@ def Write_HTML(html_text, html_file):
 def Write_XML(xml_text, xml_file):
 	with open(xml_file, 'ab') as f:
 		f.write(xml_text)
+
+# --------------------------------------------------------------
+# write CBP to file
+# --------------------------------------------------------------
+# functions takes a string with the XML of the checkbox problem  
+# and writes it to the problem folder as <00..00name>.xml file
+# --------------------------------------------------------------
+def Write_CBP(cbp_text, cbp_file):
+	with open(cbp_file, 'wb') as f:
+		f.write(cbp_text)
+
+

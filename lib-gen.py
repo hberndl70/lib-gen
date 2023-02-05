@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
-# lib-gen
-# markdown to xml converter for chechbox problems stored in an edx library 
+# m2x 
+# markdown to xml converter for the edx library generator (lib-gen)
 # -----------------------------------------------------------------------------
 import time
 from modules import _iof
@@ -38,30 +38,26 @@ _iof.Copy_POL(policy_file, POLICIES_FOLDER)
 # -----------------------------------------------------------------------------
 # conversion file - input / ouput - setup 
 # -----------------------------------------------------------------------------
-markdown_file = _iof.Working_DIR() + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
-html_file     = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
+MARKDOWN_FILE = _iof.Working_DIR() + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
+HTML_FILE     = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
+XML_FILE      = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
 
-print('\nconverting markdown to html ...')
+print('\nconverting markdown ...')
 # -----------------------------------------------------------------------------
 # read *.md input file (markdown_file), convert it to HTML 
 # and write it into a *.html file (html_file) to disk
 # -----------------------------------------------------------------------------
-_iof.Write_HTML(_par.Conv_Markdown(markdown_file), html_file)
+_iof.Write_HTML(_par.Conv_Markdown(MARKDOWN_FILE), HTML_FILE)
 
-print('\nconverting html to xml ...')
+print('\nparsing html ...')
 # -----------------------------------------------------------------------------
 # read *.html input file (html_file), parse the HTML text
 # and split it in to the information components needed to
 # cerate problem structure and library.xml structure
 # -----------------------------------------------------------------------------
-_par.Parse_HTML(_iof.Read_HTML(html_file))
+_par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
 
-print('\nwriting library structure ...')
-# -----------------------------------------------------------------------------
-#
-# -----------------------------------------------------------------------------
-
-print('\ncreating edx library ...')
+print('\ncreating edx-library ...')
 # -----------------------------------------------------------------------------
 #
 # -----------------------------------------------------------------------------

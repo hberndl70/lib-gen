@@ -1,9 +1,6 @@
 from lxml import etree
 from lxml.builder import E
-from modules import _iof
 from modules import _con
-
-xml_file   = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
 
 def Display_Name(v):
     return {'display_name': v}
@@ -62,9 +59,8 @@ def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
             Weight('1.0')
         )
     )
-    etree.dump(block2)
     xml_block = etree.tostring(block2, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 
     
 def Block_3(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3):
     row_ch1 = Check_RoW(txt_ch1)
@@ -89,9 +85,8 @@ def Block_3(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3):
             Weight('1.0')
         )
     )
-    etree.dump(block3)
     xml_block = etree.tostring(block3, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 
 
 def Block_4(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4):
     row_ch1 = Check_RoW(txt_ch1)
@@ -118,9 +113,8 @@ def Block_4(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4):
             Weight('1.0')
         )
     )
-    etree.dump(block4)
     xml_block = etree.tostring(block4, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 
 
 def Block_5(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5):
     row_ch1 = Check_RoW(txt_ch1)
@@ -149,9 +143,8 @@ def Block_5(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5):
             Weight('1.0')
         )
     )
-    etree.dump(block5)
     xml_block = etree.tostring(block5, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 
 
 def Block_6(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt_ch6):
     row_ch1 = Check_RoW(txt_ch1)
@@ -182,9 +175,8 @@ def Block_6(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
             Weight('1.0')
         )
     )
-    etree.dump(block6)
     xml_block = etree.tostring(block6, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 
 
 def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt_ch6, txt_ch7):
     row_ch1 = Check_RoW(txt_ch1)
@@ -217,6 +209,5 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
             Weight('1.0')
         )
     )
-    etree.dump(block7)
     xml_block = etree.tostring(block7, pretty_print=True)
-    _iof.Write_XML(xml_block, xml_file)
+    return xml_block 

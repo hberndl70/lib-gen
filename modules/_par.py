@@ -10,6 +10,9 @@
 import markdown
 from bs4 import BeautifulSoup
 from modules import _xml
+from modules import _lib
+from modules import _con
+from modules import _iof
 
 def Conv_Markdown(input_file):
     with open(input_file, 'r') as f:
@@ -22,26 +25,30 @@ def Conv_List(txt):
     append = ''.join(map(str,txt))
     return append
 
-def Build_XML(block, template):
+def Build_XML(block, template, xml_file, cbp_num, cbp_folder):
     match template:
         case 1:
             print('A one answer knowledge check does not make sense ...')
         case 2:
-            _xml.Block_2(block[0], block[1], block[2], block[3])
+            xml_block = _xml.Block_2(block[0], block[1], block[2], block[3])
         case 3:
-            _xml.Block_3(block[0], block[1], block[2], block[3], block[4])
+            xml_block = _xml.Block_3(block[0], block[1], block[2], block[3], block[4])
         case 4:
-            _xml.Block_4(block[0], block[1], block[2], block[3], block[4], block[5])
+            xml_block = _xml.Block_4(block[0], block[1], block[2], block[3], block[4], block[5])
         case 5:
-            _xml.Block_5(block[0], block[1], block[2], block[3], block[4], block[5], block[6])
+            xml_block = _xml.Block_5(block[0], block[1], block[2], block[3], block[4], block[5], block[6])
         case 6:
-            _xml.Block_6(block[0], block[1], block[2], block[3], block[4], block[5], block[6], block[7])
+            xml_block = _xml.Block_6(block[0], block[1], block[2], block[3], block[4], block[5], block[6], block[7])
         case 7:
-            _xml.Block_7(block[0], block[1], block[2], block[3], block[4], block[5], block[6], block[7], block[8])
+            xml_block = _xml.Block_7(block[0], block[1], block[2], block[3], block[4], block[5], block[6], block[7], block[8])
         case _:
             print('...something went wrong, to many answers or other errors, check your *.md input file.')
-
-def Parse_HTML(html_text):
+            
+    _iof.Write_XML(xml_block, xml_file) # writing xml strcuture to the test.xml control file
+    CBP_FILENAME = cbp_folder + '/' + str(_con.CBP_XML) + str(cbp_num) + '.xml'
+    _iof.Write_CBP(xml_block, CBP_FILENAME)
+    
+def Parse_HTML(html_text, xml_file, cbp_folder):
     # --------------------------------------------------------------
     # fetch the html character soup ;)
     # --------------------------------------------------------------
@@ -57,6 +64,11 @@ def Parse_HTML(html_text):
     # init number of questions in the input file
     # --------------------------------------------------------------
     num_q = len(display)
+    # --------------------------------------------------------------
+    # create library.xml file in the folder structure
+    # --------------------------------------------------------------
+    print('\nwriting xml ...')
+    _lib.Write_LIB_XML(num_q)
     # --------------------------------------------------------------
     # init strings for checkbox problem names, question, answers
     # -------------------------------------------------------------- 
@@ -87,8 +99,7 @@ def Parse_HTML(html_text):
             cnt_t += 1
             cnt_a += 1
 
-        print('\n')
-        Build_XML(kc_lst, cnt_t)
+        Build_XML(kc_lst, cnt_t, xml_file, cnt_q, cbp_folder)
     
         # reset for next checkbox problem block parsing
         kc_lst   = []

@@ -1,15 +1,23 @@
 #------------------------------------------------------------------------------
-# CONSTANT definitions for the lib-gen script
+# CONSTANT definitions for m2x converter
 #------------------------------------------------------------------------------
 
 # Folder names for input / output
 #------------------------------------------------------------------------------
-OUT_FOLDER      = 'output'
 INP_FOLDER      = 'input'
+OUT_FOLDER      = 'output'
 
 # Folder names for writing xml file
 #------------------------------------------------------------------------------
 LIB_FOLDER      = 'library'    
+
+# library.xml configuration
+#------------------------------------------------------------------------------
+URL_NAME        = 'library'
+XBLOCK_FAMILY   = 'xblock.v1'
+DISPLAY_NAME    = 'LIB TEST'
+ORG             = 'Exoscale'
+LIBRARY         = '_DT_XLib'  
 
 # Folder names for writing xml components
 #------------------------------------------------------------------------------
@@ -30,8 +38,16 @@ CHO_CLOSE       = '</choice>'
 
 DES_TEXT        = 'Please select all applicable options from the list below. Multiple selections are allowed.'
 
-# File names for TESTING 
+# File name for the library and the checkbox problem definition .xml files
 #------------------------------------------------------------------------------
-INP_MD         = 'test.md'
+LIB_XML         ='library.xml'
+CBP_XML         ='00000000000000000000'
+
+# File names for output files TESTING
+#------------------------------------------------------------------------------
 OUT_HTM        = 'test.html'
 OUT_XML        = 'test.xml'
+
+# File name for input files TESTING 
+#------------------------------------------------------------------------------
+INP_MD         = 'test.md'
