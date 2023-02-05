@@ -3,7 +3,7 @@
 .vscode
 output/*
 library/*
-library.tar.gz
+library.*
 __pycache__/*
 modules/__pycache__/*
 
