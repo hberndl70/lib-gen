@@ -73,4 +73,16 @@ def Write_CBP(cbp_text, cbp_file):
 	with open(cbp_file, 'wb') as f:
 		f.write(cbp_text)
 
-
+# --------------------------------------------------------------
+# create library.tar.gz archive 
+# --------------------------------------------------------------
+# functions takes a string with the XML of the checkbox problem  
+# and writes it to the problem folder as <00..00name>.xml file
+# --------------------------------------------------------------
+def Create_TAR(working_dir, path, file):
+	commands = [
+		["cd", working_dir], 
+		["tar", "-cf", file, path], 
+		["gzip", file]]
+	for command in commands:
+		subprocess.run(command)

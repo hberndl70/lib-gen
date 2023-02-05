@@ -15,8 +15,8 @@ LIB_FOLDER      = 'library'
 #------------------------------------------------------------------------------
 URL_NAME        = 'library'
 XBLOCK_FAMILY   = 'xblock.v1'
-DISPLAY_NAME    = 'LIB TEST'
 ORG             = 'Exoscale'
+DISPLAY_NAME    = 'LIB TEST'
 LIBRARY         = '_DT_XLib'  
 
 # Folder names for writing xml components

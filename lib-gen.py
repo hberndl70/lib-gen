@@ -2,24 +2,20 @@
 # m2x 
 # markdown to xml converter for the edx library generator (lib-gen)
 # -----------------------------------------------------------------------------
-import time
 from modules import _iof
 from modules import _par 
 from modules import _con 
 
 # -----------------------------------------------------------------------------
-# START Time
-# -----------------------------------------------------------------------------
-start = time.time()
-
-# -----------------------------------------------------------------------------
 # folder structure for output and library  
 # -----------------------------------------------------------------------------
-OUTPUT = _iof.Working_DIR() + '/' + _con.OUT_FOLDER
+WORKING_DIR = _iof.Working_DIR()
+
+OUTPUT = WORKING_DIR + '/' + _con.OUT_FOLDER
 _iof.Delete_DIR(OUTPUT)
 _iof.Create_DIR(OUTPUT)
 
-LIBRARY_FOLDER = _iof.Working_DIR() + '/' + _con.LIB_FOLDER 
+LIBRARY_FOLDER = WORKING_DIR + '/' + _con.LIB_FOLDER 
 _iof.Delete_DIR(LIBRARY_FOLDER)
 _iof.Create_DIR(LIBRARY_FOLDER)
 
@@ -38,9 +34,12 @@ _iof.Copy_POL(policy_file, POLICIES_FOLDER)
 # -----------------------------------------------------------------------------
 # conversion file - input / ouput - setup 
 # -----------------------------------------------------------------------------
-MARKDOWN_FILE = _iof.Working_DIR() + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
-HTML_FILE     = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
-XML_FILE      = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
+MARKDOWN_FILE = WORKING_DIR + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
+HTML_FILE     = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
+XML_FILE      = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
+
+TAR_FOLDER    =  _con.LIB_FOLDER + '/'
+TAR_FILE      = 'library.tar'
 
 print('\nconverting markdown ...')
 # -----------------------------------------------------------------------------
@@ -57,14 +56,12 @@ print('\nparsing html ...')
 # -----------------------------------------------------------------------------
 _par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
 
-print('\ncreating edx-library ...')
+print('\ncreating tar.gz ...')
 # -----------------------------------------------------------------------------
-#
+# creating tar.gz archive of the created library folder structure
 # -----------------------------------------------------------------------------
+_iof.Create_TAR(WORKING_DIR, TAR_FOLDER, TAR_FILE)
 
-# -----------------------------------------------------------------------------
-# END Time
-# -----------------------------------------------------------------------------
-end = time.time()
-print('\nexecution time in seconds:')
-print(end - start)
+
+
+
