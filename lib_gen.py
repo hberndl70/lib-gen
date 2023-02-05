@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # lib-gen
-# markdown to xml converter for the edx library generator (lib-gen)
+# markdown to xml converter for the edx library generator
 # -----------------------------------------------------------------------------
 import time
 from modules import _iof
