@@ -21,3 +21,4 @@ def Write_LIB_XML(cbp_number):
     xml_block = etree.tostring(library, pretty_print=True)
     LIBRARY = _iof.Working_DIR() + '/' + _con.LIB_FOLDER + '/' + _con.LIB_XML 
     _iof.Write_XML(xml_block, LIBRARY)
+    

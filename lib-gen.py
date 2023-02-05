@@ -61,7 +61,3 @@ print('creating tar.gz ...')
 # creating tar.gz archive of the created library folder structure
 # -----------------------------------------------------------------------------
 _iof.Create_TAR(WORKING_DIR, TAR_FOLDER, TAR_FILE)
-
-
-
-
