@@ -3,8 +3,7 @@
 
 mkdir output
 
-edx_gen="../edx-gen/lib_gen.py"
-input="./input"
-output="./output"
+edx_gen="../edx-gen/lib-gen.py"
+input = $1 
 
-python3 $edx_gen $input $output
+python3 $edx_gen $input
