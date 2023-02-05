@@ -41,14 +41,14 @@ XML_FILE      = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
 TAR_FOLDER    =  _con.LIB_FOLDER + '/'
 TAR_FILE      = 'library.tar'
 
-print('\nconverting markdown ...')
+print('converting markdown ...')
 # -----------------------------------------------------------------------------
 # read *.md input file (markdown_file), convert it to HTML 
 # and write it into a *.html file (html_file) to disk
 # -----------------------------------------------------------------------------
 _iof.Write_HTML(_par.Conv_Markdown(MARKDOWN_FILE), HTML_FILE)
 
-print('\nparsing html ...')
+print('parsing html ...')
 # -----------------------------------------------------------------------------
 # read *.html input file (html_file), parse the HTML text
 # and split it in to the information components needed to
@@ -56,7 +56,7 @@ print('\nparsing html ...')
 # -----------------------------------------------------------------------------
 _par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
 
-print('\ncreating tar.gz ...')
+print('creating tar.gz ...')
 # -----------------------------------------------------------------------------
 # creating tar.gz archive of the created library folder structure
 # -----------------------------------------------------------------------------

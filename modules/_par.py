@@ -67,7 +67,7 @@ def Parse_HTML(html_text, xml_file, cbp_folder):
     # --------------------------------------------------------------
     # create library.xml file in the folder structure
     # --------------------------------------------------------------
-    print('\nwriting xml ...')
+    print('writing xml ...')
     _lib.Write_LIB_XML(num_q)
     # --------------------------------------------------------------
     # init strings for checkbox problem names, question, answers
