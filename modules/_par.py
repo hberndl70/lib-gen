@@ -19,7 +19,7 @@ def Conv_Markdown(input_file):
 
 def Conv_List(txt):
     # convert bs4 list of strings into one string
-    append = ' '.join(map(str,txt))
+    append = ''.join(map(str,txt))
     return append
 
 def Build_XML(block, template):

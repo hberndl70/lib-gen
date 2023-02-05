@@ -1,25 +1,45 @@
 # -----------------------------------------------------------------------------
-# m2x 
+# lib-gen
 # markdown to xml converter for the edx library generator (lib-gen)
 # -----------------------------------------------------------------------------
-# import time
+import time
 from modules import _iof
 from modules import _par 
+from modules import _con 
 
 # -----------------------------------------------------------------------------
 # START Time
 # -----------------------------------------------------------------------------
-# start = time.time()
+start = time.time()
 
 # -----------------------------------------------------------------------------
-# TESTING SETUP
-# constant defined as string with absolute path + filename 
+# folder structure for output and library  
 # -----------------------------------------------------------------------------
-FILE_MD  = '/Users/hansberndl/_git/lib-gen/input/test.md'
-FILE_HTM = '/Users/hansberndl/_git/lib-gen/output/test.html'
+OUTPUT = _iof.Working_DIR() + '/' + _con.OUT_FOLDER
+_iof.Delete_DIR(OUTPUT)
+_iof.Create_DIR(OUTPUT)
+
+LIBRARY_FOLDER = _iof.Working_DIR() + '/' + _con.LIB_FOLDER 
+_iof.Delete_DIR(LIBRARY_FOLDER)
+_iof.Create_DIR(LIBRARY_FOLDER)
+
+PROBLEM_FOLDER = LIBRARY_FOLDER + '/' + _con.PRO_FOLDER
+_iof.Create_DIR(PROBLEM_FOLDER)
+
+POLICIES_FOLDER = LIBRARY_FOLDER + '/' + _con.POL_FOLDER
+_iof.Create_DIR(POLICIES_FOLDER)
+
 # -----------------------------------------------------------------------------
-markdown_file = '' + FILE_MD
-html_file     = '' + FILE_HTM
+# copy policy file (assets.json) into policies folder 
+# -----------------------------------------------------------------------------
+policy_file = _con.INP_FOLDER + '/' + _con.POL_FILENAME
+_iof.Copy_POL(policy_file, POLICIES_FOLDER)
+
+# -----------------------------------------------------------------------------
+# conversion file - input / ouput - setup 
+# -----------------------------------------------------------------------------
+markdown_file = _iof.Working_DIR() + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
+html_file     = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
 
 print('\nconverting markdown to html ...')
 # -----------------------------------------------------------------------------
@@ -36,9 +56,19 @@ print('\nconverting html to xml ...')
 # -----------------------------------------------------------------------------
 _par.Parse_HTML(_iof.Read_HTML(html_file))
 
+print('\nwriting library structure ...')
+# -----------------------------------------------------------------------------
+#
+# -----------------------------------------------------------------------------
+
+print('\ncreating edx library ...')
+# -----------------------------------------------------------------------------
+#
+# -----------------------------------------------------------------------------
+
 # -----------------------------------------------------------------------------
 # END Time
 # -----------------------------------------------------------------------------
-# end = time.time()
-# print('\nexecution time in seconds:')
-# print(end - start)
+end = time.time()
+print('\nexecution time in seconds:')
+print(end - start)

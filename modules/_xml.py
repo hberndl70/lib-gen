@@ -1,15 +1,9 @@
 from lxml import etree
 from lxml.builder import E
 from modules import _iof
+from modules import _con
 
-LABEL_OPEN      = '<p>'
-LABEL_CLOSE     = '</p>'
-DESCRIPTION     = 'Please select all applicable options from the list below. Multiple selections are allowed.'
-CHOICE_OPEN     = '<choice '
-CHOICE_CLOSE    = '</choice>'
-
-FILE_XML = '/Users/hansberndl/_git/lib-gen/output/test.xml'
-xml_file      = "" + FILE_XML
+xml_file   = _iof.Working_DIR() + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
 
 def Display_Name(v):
     return {'display_name': v}
@@ -40,11 +34,11 @@ def Check_RoW(v):
         return 'true'
 
 def Build_Label(txt_lbl):
-    txt_label = LABEL_OPEN + txt_lbl + LABEL_CLOSE
+    txt_label = _con.LAB_OPEN + txt_lbl + _con.LAB_CLOSE
     return txt_label
 
 def Build_Choice(txt_ch, right_or_wrong):
-    txt_choice = CHOICE_OPEN + Correct_Tag(right_or_wrong) + txt_ch + CHOICE_CLOSE
+    txt_choice = _con.CHO_OPEN + Correct_Tag(right_or_wrong) + txt_ch + _con.CHO_CLOSE
     return txt_choice
 
 def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
@@ -54,7 +48,7 @@ def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2))
@@ -80,7 +74,7 @@ def Block_3(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -108,7 +102,7 @@ def Block_4(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -138,7 +132,7 @@ def Block_5(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -170,7 +164,7 @@ def Block_6(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -204,7 +198,7 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(DESCRIPTION),
+            E.description(_con.DES_TEXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -226,26 +220,3 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
     etree.dump(block7)
     xml_block = etree.tostring(block7, pretty_print=True)
     _iof.Write_XML(xml_block, xml_file)
-
-# def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
-#     row_ch1 = Check_RoW(txt_ch1)      <-- checking for the choice value [ ] = 'false' [x] = 'true'
-#     row_ch2 = Check_RoW(txt_ch2)      <-- checking for the choice value [ ] = 'false' [x] = 'true'
-#     block2 = (
-#         E.problem(
-#             E.choiceresponse(
-#             E.label(etree.XML(Build_Label(txt_lbl))), 
-#             E.description(DESCRIPTION),
-#             E.checkboxgroup(
-#                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),    <-- txt_ch1[4:] = removing [ ] or [x] from the string 
-#                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2))     <-- txt_ch1[4:] = removing [ ] or [x] from the string 
-#                 )
-#             ),
-#             Display_Name(disp_name),
-#             Markdown('null'),
-#             Max_Attempts('1'),
-#             Show_Reset_Button('false'),
-#             ShowAnswer('never'),
-#             Weight('1.0')
-#         )
-#     )
-#     etree.dump(block2)

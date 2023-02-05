@@ -1,7 +1,40 @@
 # --------------------------------------------------------------
 # file I/O for HTML/XML to/from disk
 # --------------------------------------------------------------
+import os
+import subprocess
 
+# --------------------------------------------------------------
+# get the corrent working directory 
+# --------------------------------------------------------------
+def Working_DIR():
+	working_dir = os.getcwd()
+	return working_dir
+
+# --------------------------------------------------------------
+# create a folder 
+# --------------------------------------------------------------
+def Create_DIR(path):
+	os.mkdir(path)
+
+# --------------------------------------------------------------
+# delete a folder
+# --------------------------------------------------------------
+def Delete_DIR(path):
+	if os.path.exists(path):
+		subprocess.run(["rm", "-rf", path])
+	else:
+		print('path ' + path + 'do not exist!')
+
+# --------------------------------------------------------------
+# copy policy file (assets.json) into the policies folder
+# --------------------------------------------------------------
+def Copy_POL(file, path):
+	if os.path.exists(path):
+		subprocess.run(["cp", file, path])
+	else:
+		print('path ' + path + 'do not exist!')
+		
 # --------------------------------------------------------------
 # read HTML from file
 # --------------------------------------------------------------
