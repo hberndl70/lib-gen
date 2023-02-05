@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # lib-gen
-# markdown to xml converter for the edx library generator
+# markdown to xml converter for chechbox problems stored in an edx library 
 # -----------------------------------------------------------------------------
 import time
 from modules import _iof
