@@ -7,7 +7,7 @@ The aim is:
 - to allow Git version control to be used when developing and reviewing the content.
 - to allow better control over formatting and styles.
 
-The basic workflow is that you create a markdown file `<name>.md` localy, in a specific format (see Format Description). When you run the python script, it's final output is a compressed archive file `<library-name>.tar.gz` file that can be directly imported into a edX library. As a by-product there is also the converted HTML-file `<name>.html` and the XML-File `<name>.xml` in the output folder. When the `<library-name>.tar.gz` file is imported, it will automatically populate the library content on edX. 
+The basic workflow is that you create a markdown file `<name>.md` localy, in a specific format (see __Format Description__). When you run the python script, it's final output is a compressed archive file `<library-name>.tar.gz` file that can be directly imported into a edX library. As a by-product there is also the converted HTML-file `<name>.html` and the XML-File `<name>.xml` in the output folder. When the `<library-name>.tar.gz` file is imported, it will automatically populate the library content on edX. 
 
 >NOTE: exisiting library content will be overwritten.
 
