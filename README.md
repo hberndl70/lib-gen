@@ -3,7 +3,7 @@
 A Python3 script for generating an edX library from markdown.
 
 The aim is:
-- to allow all library content to be created using a simple text editor outside the browser.
+- to allow all library content for checkbox problems to be created using a simple text editor outside the browser.
 - to allow Git version control to be used when developing and reviewing the content.
 - to allow better control over formatting and styles.
 
@@ -14,7 +14,7 @@ The basic workflow is that you create a markdown file `<name>.md` localy, in a s
 
 ## Format Description
 
-The input format for the edx library containing all the exam checkbox problems is pretty simple:
+The input format for the edX library containing all the exam checkbox problems is pretty simple:
 * Level 1 `#` heading format is used to define the name of the checkbox problem.
 * Level 2 `##` heading format is used to define the checkbox problem question.
 * Paragraphs with leading `[ ]` for wrong answers and `[x]` for write answers are used to define the checkbox problem answers.
@@ -51,12 +51,11 @@ The input format for the edx library containing all the exam checkbox problems i
 ```
 
 
-## Execution
+## Executing the `lib-gen.py` Script
 
-There is the `lib-gen.py` Python script:
-It generates all the edX files which comprise the library, including the `<lib-name>.tar.gz` file for the import of the library into edX.
+Running the Python script `lib-gen.py` generates all the edX files which comprise the library, including the `<lib-name>.tar.gz` file for the import of the library into edX.
 
-Execute the generator:
+Executing the generator:
 
 ```
 python lib-gen.py <input_file>.md
@@ -65,8 +64,8 @@ python lib-gen.py <input_file>.md
 >NOTE: any existing content in the folders `output` and `library` will be deleted.
 
 
-## Upload the `<library-name>.tar.gz` File
+## Uploading the `<library-name>.tar.gz` File
 
-After running the lib-gen script (assuming no errors), a `<lib-name>.tar.gz` file will be generated. This file can be uploaded to the edX platform.
+After running the lib-gen script (assuming no errors), a `<lib-name>.tar.gz` file will be generated locally. This file can be uploaded to the edX platform.
 
 >NOTE: When you upload the `<lib-name>.tar.gz` file to edX, any existing library content in this edX library will be deleted.**
