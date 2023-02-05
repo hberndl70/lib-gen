@@ -68,4 +68,4 @@ python lib-gen.py <input_file>.md
 
 After running the lib-gen script (assuming no errors), a `<lib-name>.tar.gz` file will be generated locally. This file can be uploaded to the edX platform.
 
->NOTE: When you upload the `<lib-name>.tar.gz` file to edX, any existing library content in this edX library will be deleted.**
+>NOTE: When you import the `<lib-name>.tar.gz` file to edX, any existing library content in this edX library will be deleted.**
