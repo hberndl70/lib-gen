@@ -15,12 +15,15 @@ The basic workflow is that you create a markdown file `name.md` localy, in a spe
 ## Format Description
 
 The markdown input format for the edX library creation containing all the exam checkbox problems is pretty simple:
-* Level 1 `#` heading format is used to define the name of the checkbox problem.
-* Level 2 `##` heading format is used to define the checkbox problem question.
-* Paragraphs with leading `[ ]` for wrong answers and `[x]` for write answers are used to define the checkbox problem answers.
+* Level 1 `#` heading format defines the name of the checkbox problem.
+* Level 2 `##` heading format defines the checkbox problem question.
+* Paragraphs with leading `[ ]` for wrong answers.
+* Paragraphs with leading `[x]` for right answers.
+* Answer counts should be in the range of `2` to `8`.
 * Paragraph with only `===` defines the end of the checkbox problem.
 
 >NOTE: `[x]` needs to be a small caps `x`
+
 
 ```markdown
 # BASICS
