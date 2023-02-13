@@ -16,17 +16,17 @@
 
 # BASICS
 
-##  What is an IP address? 
+## What is an IP address? 
 
 [x] A numerical label assigned to each device connected to a computer network that uses the Internet Protocol.
 
-[ ] An identifier both for the host and the host’s location.
+[ ] An identifier both for the host and the host's location.
 
 ===
 
 # BASICS
 
-##  What is ICMP good for?
+## What is ICMP good for?
 
 [x] To ping a server if it is running.
 
@@ -40,7 +40,7 @@
 
 # BASICS
 
-##  Which of the following is a valid IPv6 address?
+## Which of the following is a valid IPv6 address?
 
 [x] `fe80::1`
 
@@ -86,17 +86,19 @@
 
 ## Which of the following IPv4 address are valid?
 
-[ ] `192.168.0.356`
+[ ] 192.168.0.356
 
-[ ] `fe80::1`
+[ ] fe80::1
 
-[x] `10.0.0.1`
+[x] 10.0.0.1
 
-[ ] `172.24.0.1.2`
+[ ] 172.24.0.1.2
 
-[x] `1.1.1.1`
+[x] 1.1.1.1
 
-[ ] `19.3.2`
+[ ] 19.3.2
+
+[ ] 1:1:1:1
 
 ===
 
@@ -292,11 +294,11 @@
 
 ## How does a typical CI/CD integration work?
 
-[x] Code Versioning System `->` CI/CD `->` Production
+[x] Code Versioning System -> CI/CD -> Production
 
-[ ] CI/CD `->` Code Versioning System `->` Production
+[ ] CI/CD -> Code Versioning System -> Production
 
-[ ] Production `->` CI/CD `->` Code Versioning System
+[ ] Production -> CI/CD -> Code Versioning System
 
 ===
 
@@ -372,11 +374,13 @@
 
 [x] Every company should enforce two-factor authentication.
 
-[ ] Every company should create their own, custom encryption to stop attackers.
+[ ] Every company should avoid using standard software to stop attackers.
 
 [x] Every company should regularly scan their infrastructure for security problems.
 
 [x] Every company should use encrypted connections whenever feasible.
+
+[ ] Every company should create their own, custom encryption to stop attackers.
 
 [x] Every company should conduct disaster recovery drills.
 
@@ -646,7 +650,7 @@
 
 # DATABASE ARCHITECTURE
 
-## Which company owns MSSQL / SQL Server?
+## Which company owns MS SQL Server?
 
 [x] Microsoft
 
@@ -696,7 +700,11 @@
 
 [x] MySQL
 
+[x] MariaDB
+
 [x] Oracle
+
+[x] Microsoft SQL
 
 [x] PostgreSQL
 
@@ -716,6 +724,8 @@
 
 [x] MySQL
 
+[ ] Microsoft SQL
+
 [ ] PostgreSQL
 
 [ ] MongoDB
@@ -723,6 +733,8 @@
 [ ] Redis
 
 [ ] ElasticSearch
+
+[ ] Cassandra
 
 ===
 
@@ -790,12 +802,13 @@
 
 ## Which of the following tools have built-in alerting?
 
-[X] Prometheus
+[x] Prometheus
 
 [ ] Supervisord
 
 [ ] Helm
 
-[X] Icinga
+[x] Icinga
 
 ===
+

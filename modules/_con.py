@@ -16,9 +16,10 @@ LIB_FOLDER      = 'library'
 URL_NAME        = 'library'
 XBLOCK_FAMILY   = 'xblock.v1'
 ORG             = 'Exoscale'
-DISPLAY_NAME    = 'LIB TEST'
-LIBRARY         = '_DT_XLib'  
-
+#------------------------------------------------------------------------------
+DISPLAY_NAME    = 'ADVANCED Exam'                # <-- value form config.json or cli parameter
+LIBRARY         = 'AdvancedXLib'                 # <-- value form config.json or cli parameter
+ 
 # Folder names for writing xml components
 #------------------------------------------------------------------------------
 PRO_FOLDER      = 'problem'
@@ -40,14 +41,14 @@ DES_TEXT        = 'Please select all applicable options from the list below. Mul
 
 # File name for the library and the checkbox problem definition .xml files
 #------------------------------------------------------------------------------
-LIB_XML         ='library.xml'
-CBP_XML         ='00000000000000000000'
+LIB_XML         ='library.xml'                          # moocit expects a library.xml file in the tar.gz archive
+CBP_XML         ='00000000000000000000000000000000'     # checkbox probleme filenames are 32 characters long
 
 # File names for output files TESTING
 #------------------------------------------------------------------------------
-OUT_HTM        = 'test.html'
-OUT_XML        = 'test.xml'
+OUT_HTM        = 'test.html'                # = filename without extension (from cli parameter) + '.html'
+OUT_XML        = 'test.xml'                 # = filename without extension (from cli parameter) + '.xml'   
 
 # File name for input files TESTING 
 #------------------------------------------------------------------------------
-INP_MD         = 'test.md'
+INP_MD         = 'test.md'                  # = filename from cli parameter 

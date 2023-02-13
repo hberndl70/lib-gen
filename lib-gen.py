@@ -1,13 +1,19 @@
 # -----------------------------------------------------------------------------
-# m2x 
+# lib-gen 
 # markdown to xml converter for the edx library generator (lib-gen)
 # -----------------------------------------------------------------------------
+import time
 from modules import _iof
 from modules import _par 
 from modules import _con 
 
 # -----------------------------------------------------------------------------
-# folder structure for output and library  
+# START Time
+# -----------------------------------------------------------------------------
+start = time.time()
+
+# -----------------------------------------------------------------------------
+# folder structure for output and library folders  
 # -----------------------------------------------------------------------------
 WORKING_DIR = _iof.Working_DIR()
 
@@ -37,27 +43,51 @@ _iof.Copy_POL(policy_file, POLICIES_FOLDER)
 MARKDOWN_FILE = WORKING_DIR + '/' + _con.INP_FOLDER + '/' + _con.INP_MD
 HTML_FILE     = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + _con.OUT_HTM
 XML_FILE      = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + _con.OUT_XML
-
+# -----------------------------------------------------------------------------
 TAR_FOLDER    =  _con.LIB_FOLDER + '/'
 TAR_FILE      = 'library.tar'
 
-print('converting markdown ...')
+print('\ntesting markdown ...')
 # -----------------------------------------------------------------------------
-# read *.md input file (markdown_file), convert it to HTML 
-# and write it into a *.html file (html_file) to disk
+# read *.md input file (markdown_file), and test the structure using
+# regular expressions and re-format the text to a consisten input
 # -----------------------------------------------------------------------------
-_iof.Write_HTML(_par.Conv_Markdown(MARKDOWN_FILE), HTML_FILE)
+correct = _par.Check_Markdown(MARKDOWN_FILE)
 
-print('parsing html ...')
-# -----------------------------------------------------------------------------
-# read *.html input file (html_file), parse the HTML text
-# and split it in to the information components needed to
-# cerate problem structure and library.xml structure
-# -----------------------------------------------------------------------------
-_par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
+if correct:
+    print('\nconverting markdown ...')
+    # -----------------------------------------------------------------------------
+    # read *.md input file (markdown_file), convert it to HTML 
+    # and write it into a *.html file (html_file) to disk
+    # -----------------------------------------------------------------------------
+    _iof.Write_HTML(_par.Conv_Markdown(MARKDOWN_FILE), HTML_FILE)
+    print('... done!')
 
-print('creating tar.gz ...')
-# -----------------------------------------------------------------------------
-# creating tar.gz archive of the created library folder structure
-# -----------------------------------------------------------------------------
-_iof.Create_TAR(WORKING_DIR, TAR_FOLDER, TAR_FILE)
+    print('\nparsing html ...')
+    # -----------------------------------------------------------------------------
+    # read *.html input file (html_file), parse the HTML text
+    # and split it in to the information components needed to
+    # cerate problem structure and library.xml structure
+    # -----------------------------------------------------------------------------
+    _par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
+    print('... done!')
+
+    print('\ncreating tar.gz ...')
+    # -----------------------------------------------------------------------------
+    # creating tar.gz archive of the created library folder structure
+    # -----------------------------------------------------------------------------
+    _iof.Create_TAR(WORKING_DIR, TAR_FOLDER, TAR_FILE)
+    print('... done!')
+
+    # -----------------------------------------------------------------------------
+    # END Time
+    # -----------------------------------------------------------------------------
+    end = time.time()
+    print('\nexecution time in seconds:')
+    print(end - start)
+else:
+    print('\n')
+    print('----------------------------------------')
+    print('ERROR: markdown file structure incorrect')
+    print('----------------------------------------')
+    print('\n')

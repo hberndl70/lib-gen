@@ -86,3 +86,13 @@ def Create_TAR(working_dir, path, file):
 		["gzip", file]]
 	for command in commands:
 		subprocess.run(command)
+
+# --------------------------------------------------------------
+# create a 32 character string file name 
+# --------------------------------------------------------------
+# functions takes a string of 32 characters all '0'and inserts   
+# the consecutive numbers of the checkbox problems 
+# --------------------------------------------------------------
+def Create_Name32 (src_str, num_str):
+    dig_cnt = len(num_str)
+    return src_str[:32-dig_cnt] + num_str
