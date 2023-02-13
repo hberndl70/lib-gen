@@ -7,7 +7,7 @@ The aim is:
 - to allow Git version control to be used when developing and reviewing the content.
 - to allow better control over formatting and styles.
 
-The basic workflow is that you create a markdown file `<name>.md` localy, in a specific format (see __Format Description__). When you run the python script, it's final output is a compressed archive file `<library-name>.tar.gz` file that can be directly imported into a edX library. As a by-product there is also the converted HTML-file `<name>.html` and the XML-File `<name>.xml` in the output folder. When the `<library-name>.tar.gz` file is imported, it will automatically populate the library content on edX. 
+The basic workflow is that you create a markdown file `name.md` localy, in a specific format (see __Format Description__). When you run the python script, it's final output is a compressed archive file `library-name.tar.gz` file that can be directly imported into a edX library. As a by-product there is also the converted HTML-file `name.html` and the XML-File `name.xml` in the output folder. When the `library-name.tar.gz` file is imported, it will automatically populate the library content on edX. 
 
 >NOTE: exisiting library content will be overwritten.
 
@@ -53,19 +53,19 @@ The markdown input format for the edX library creation containing all the exam c
 
 ## Executing the `lib-gen.py` Script
 
-Running the Python script `lib-gen.py` generates all the edX files which comprise the library, including the `<lib-name>.tar.gz` file for the import of the library into edX.
+Running the Python script `lib-gen.py` generates all the edX files which comprise the library, including the `lib-name.tar.gz` file for the import of the library into edX.
 
 Executing the generator:
 
 ```
-python lib-gen.py <input_file>.md
+python3 lib-gen.py input_file.md
 ```
 
 >NOTE: any existing content in the folders `output` and `library` will be deleted.
 
 
-## Uploading the `<library-name>.tar.gz` File
+## Uploading the `library-name.tar.gz` File
 
-After running the lib-gen script (assuming no errors), a `<lib-name>.tar.gz` file will be generated locally. This file can be uploaded to the edX platform.
+After running the lib-gen script (assuming no errors), a `lib-name.tar.gz` file will be generated locally. This file can be uploaded to the edX platform.
 
->NOTE: When you import the `<lib-name>.tar.gz` file to edX, any existing library content in this edX library will be deleted.**
+>NOTE: When you import the `lib-name.tar.gz` file to edX, any existing library content in this edX library will be deleted.
