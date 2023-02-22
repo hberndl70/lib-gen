@@ -71,7 +71,7 @@ def CLI():
     XML_FILE      = WORKING_DIR + '/' + _con.OUT_FOLDER + '/' + OUT_XML
     # -----------------------------------------------------------------------------
     TAR_FOLDER    = _con.LIB_FOLDER + '/'
-    TAR_FILE      = 'library.' + LIB_NAME + '.tar'
+    TAR_FILE      = 'library-' + LIB_NAME + '.tar'
     GZ_FILE       = WORKING_DIR + '/' + TAR_FILE + '.gz'
 
     gz_file = pathlib.Path(GZ_FILE)

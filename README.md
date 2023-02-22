@@ -61,7 +61,7 @@ Running the Python script `lib-gen.py` generates all the edX files which compris
 Executing the generator:
 
 ```
-python3 lib-gen.py input_file.md
+python3 lib-gen.py library_name
 ```
 
 >NOTE: any existing content in the folders `output` and `library` will be deleted.
