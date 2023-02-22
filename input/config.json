@@ -1,0 +1,8 @@
+{
+    "INP_MARKDOWN":     "TST101.md",
+    "OUT_HTML":         "TST101.html",
+    "OUT_XML":          "TST101.xml",
+    "DISPLAY_NAME":     "TST101 Exam",   
+    "LIBRARY":          "TST101XLib",  
+    "ORG":              "Exoscale"
+}

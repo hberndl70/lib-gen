@@ -1,7 +1,12 @@
 # --------------------------------------------------------------
-# file I/O for HTML/XML to/from disk
+# file I/O funtions for HTML/XML to/from disk
+# --------------------------------------------------------------
+# collection of funtion for I/O, creating special filenames and 
+# creating the final archive of the folder structure holding the
+# library content. 
 # --------------------------------------------------------------
 import os
+import json
 import subprocess
 
 # --------------------------------------------------------------
@@ -25,12 +30,31 @@ def Delete_DIR(path):
 		subprocess.run(["rm", "-rf", path])
 
 # --------------------------------------------------------------
+# delete a GZ archive
+# --------------------------------------------------------------
+def Delete_GZ(archive):
+	if os.path.exists(archive):
+		subprocess.run(["rm", "-f", archive])
+
+# --------------------------------------------------------------
 # copy policy file (assets.json) into the policies folder
 # --------------------------------------------------------------
 def Copy_POL(file, path):
 	if os.path.exists(path):
 		subprocess.run(["cp", file, path])
-		
+
+# --------------------------------------------------------------
+# read JSON from file
+# --------------------------------------------------------------
+# functions takes a filename for the JSON input
+# and reads it into a string (json_data) which 
+# is returned by the function
+# --------------------------------------------------------------
+def Read_JSON(json_file):
+	with open(json_file, 'r') as f:     
+		json_data = json.load(f)
+	return json_data
+    
 # --------------------------------------------------------------
 # read HTML from file
 # --------------------------------------------------------------

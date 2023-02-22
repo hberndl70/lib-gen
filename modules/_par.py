@@ -1,12 +1,10 @@
-# --------------------------------------------------------------
+#---------------------------------------------------------------
 # parsing HTML and splitting in components (strings) 
-# --------------------------------------------------------------
-# parsing the converted markdown input (Conv_Markdown) and 
-# split it into information components (Parse_HMTL) then used 
-# to build the file <library.xml> and the problem defnitions in 
-# XML stored in the problem folder:
-# <000000000000000000001.xml>, <000000000000000000002.xml>, ... 
-# --------------------------------------------------------------
+#---------------------------------------------------------------
+# parsing the converted markdown input (Conv_Markdown) and split 
+# it into information components (Parse_HMTL) then used to build 
+# the seperate XML files describing the checkbox problems.
+#---------------------------------------------------------------
 import re
 import markdown
 from bs4 import BeautifulSoup
@@ -15,9 +13,9 @@ from modules import _iof
 from modules import _lib
 from modules import _xml
 
-# --------------------------------------------------------------
+#---------------------------------------------------------------
 # pre parsing checks
-# --------------------------------------------------------------
+#---------------------------------------------------------------
 def Check_Box(box):
     if box == 0:
         print('... boxes OK!')
@@ -76,7 +74,7 @@ def Check_Markdown(input_file):
         return False
     return True
 
-# --------------------------------------------------------------
+#---------------------------------------------------------------
 
 def Conv_Markdown(input_file):
     with open(input_file, 'r') as f:
@@ -115,39 +113,39 @@ def Build_XML(template, block, cbp_num, cbp_folder, xml_file):
     _iof.Write_XML(xml_block, xml_file)         # writing xml structure to the test.xml control file
     
 def Parse_HTML(html_text, xml_file, cbp_folder):
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # fetch the html character soup ;)
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     soup = BeautifulSoup(html_text, "html.parser")
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # get all list of strings for
     # checkbox problem names, questions, answers 
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     display  = soup.find_all('h1')
     label    = soup.find_all('h2')
     answers  = soup.find_all('p')
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # init number of questions in the input file
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     cbp_num = len(display)
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # create library.xml file in the folder structure
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     print('writing xml ...')
     _lib.Write_LIB_XML(cbp_num)
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # init strings for checkbox problem names, question, answers
-    # -------------------------------------------------------------- 
+    #---------------------------------------------------------------
     cbp_str1 = ''
     cbp_str2 = ''
     cbp_str3 = ''
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # init list of strings (kc) for xml_block generation
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     cbp_list = []
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     # init counters for loop control
-    # --------------------------------------------------------------
+    #---------------------------------------------------------------
     tem_select  = 0   # template selector (Block_2, Block_3, ...)
     ans_index   = 0   # answer index
     cbp_counter = 0   # checkbox problem counter

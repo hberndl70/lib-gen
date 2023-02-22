@@ -1,3 +1,10 @@
+#---------------------------------------------------------------
+# checkbox problem XML templates
+#---------------------------------------------------------------
+# building the XML structure for the checkbox problems based on 
+# the number of answer options [2 - 8] plus helper function to 
+# keep the code more readable and maintanable 
+#---------------------------------------------------------------
 from lxml import etree
 from lxml.builder import E
 from modules import _con
@@ -45,7 +52,7 @@ def Block_2(disp_name, txt_lbl, txt_ch1, txt_ch2):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2))
@@ -70,7 +77,7 @@ def Block_3(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -97,7 +104,7 @@ def Block_4(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -126,7 +133,7 @@ def Block_5(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5):
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -157,7 +164,7 @@ def Block_6(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -190,7 +197,7 @@ def Block_7(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),
@@ -225,7 +232,7 @@ def Block_8(disp_name, txt_lbl, txt_ch1, txt_ch2, txt_ch3, txt_ch4, txt_ch5, txt
         E.problem(
             E.choiceresponse(
             E.label(etree.XML(Build_Label(txt_lbl))), 
-            E.description(_con.DES_TEXT),
+            E.description(_con.DESCRIPTION_TXT),
             E.checkboxgroup(
                 etree.XML(Build_Choice(txt_ch1[4:], row_ch1)),
                 etree.XML(Build_Choice(txt_ch2[4:], row_ch2)),

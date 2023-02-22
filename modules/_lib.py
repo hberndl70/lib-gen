@@ -1,26 +1,30 @@
 # --------------------------------------------------------------
 # writing the library.xml file
 # --------------------------------------------------------------
-# this file is the inventory / overview file for the edx library 
-# it holds the information for e.g.:
-# display_name="xxx" org="yyy" library="zzz" 
-# and the list of all library components (problems) 
-# 00000000000000000000000000000001, 
-# 00000000000000000000000000000002, ...
-# stored in the correspondend folder (problem) 
+# this file is the inventory file for the edx library it holds 
+# the information:  display_name="xxx" org="yyy" library="zzz" 
+# and addintional paramaters as well as the list of all library 
+# components stored in the corresponding folder.
 # --------------------------------------------------------------
 from lxml import etree
 from modules import _con 
 from modules import _iof
 
 def Write_LIB_XML(cbp_number):
-    library = etree.Element('library')
+    WORKING_DIR = _iof.Working_DIR()
+    CONFIG = WORKING_DIR + '/' + _con.INP_FOLDER + '/' + _con.CFG_FILENAME
 
+    json_data = _iof.Read_JSON(CONFIG)
+    DISPLAY_NAME = json_data["DISPLAY_NAME"]
+    LIBRARY      = json_data["LIBRARY"]
+    ORG          = json_data["ORG"]
+
+    library = etree.Element('library')
     library.set ('url_name',      _con.URL_NAME)
     library.set ('xblock-family', _con.XBLOCK_FAMILY)
-    library.set ('display_name',  _con.DISPLAY_NAME)
-    library.set ('org',           _con.ORG)
-    library.set ('library',       _con.LIBRARY)
+    library.set ('display_name',       DISPLAY_NAME)
+    library.set ('org',                ORG)
+    library.set ('library',            LIBRARY)
 
     i = 1
     while i <= cbp_number:
@@ -30,5 +34,5 @@ def Write_LIB_XML(cbp_number):
         i += 1
 
     xml_block = etree.tostring(library, pretty_print=True)
-    LIBRARY = _iof.Working_DIR() + '/' + _con.LIB_FOLDER + '/' + _con.LIB_XML 
+    LIBRARY = WORKING_DIR + '/' + _con.LIB_FOLDER + '/' + _con.LIB_XML 
     _iof.Write_XML(xml_block, LIBRARY)
