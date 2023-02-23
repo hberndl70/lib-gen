@@ -47,7 +47,7 @@ After running the lib-gen script (assuming no errors), a `library-name.tar.gz` f
 >NOTE: When you import the `library-name.tar.gz` file to edX, any existing library content in this edX library will be deleted.
 
 
-## Format Description
+## Format Description `*.md` input file
 
 The markdown input format for the edX library creation containing all the exam checkbox problems is pretty simple:
 * Level 1 `#` heading format defines the name of the checkbox problem.
