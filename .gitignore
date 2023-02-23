@@ -6,4 +6,4 @@ library/*
 library.*
 __pycache__/*
 modules/__pycache__/*
-
+*.tar.gz
