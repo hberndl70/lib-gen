@@ -18,7 +18,7 @@ In addition to the markdown input file, a config file, `config.json`, is also ne
     "OUT_XML":          "<name>.xml",
     "DISPLAY_NAME":     "<name> Exam",   
     "LIBRARY":          "<name>XLib",  
-    "ORG": "Exoscale"
+    "ORG":              "Exoscale"
 }
 ``` 
 
