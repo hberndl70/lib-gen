@@ -1,9 +1,8 @@
 #---------------------------------------------------------------
-# CLI interface for m2x converter
+# CLI interface for lib-gen converter
 #---------------------------------------------------------------
-# building the XML structure for the checkbox problems baseed on
-# the number of answer options [2 - 8] plus helper function to
-# keep the code more readable and maintainable 
+# handling cli, checking and setting files, folders and trigger 
+# conversion modules from *.md to *.xml 
 #---------------------------------------------------------------
 import json
 import pathlib
