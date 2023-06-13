@@ -87,4 +87,7 @@ The markdown input format for the edX library creation containing all the exam c
 
 ===
 
+
 ```
+
+>NOTE: after the last `===` at the end of the library *.md input file there have to be 2 blank lines !!!
