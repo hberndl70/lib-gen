@@ -26,7 +26,7 @@ def Check_Box(box):
     return check_boxes
 
 def Check_Format(h1, h2, eop):
-    # check of structur integrity 
+    # check of structural integrity 
     if h1 == h2 == eop:
         print('... format OK!')
         check_format = True
