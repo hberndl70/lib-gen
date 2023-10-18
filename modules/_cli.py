@@ -21,7 +21,7 @@ def CLI():
         print('... library name missing!') 
         exit
 
-    WORKING_DIR = _iof.Working_DIR()
+ markdown   WORKING_DIR = _iof.Working_DIR()
 
     ASSETS = WORKING_DIR + '/' + _con.INP_FOLDER + '/' + 'assets.json'
     assets_file = pathlib.Path(ASSETS)
@@ -96,7 +96,7 @@ def CLI():
         # -----------------------------------------------------------------------------
         # read *.html input file (html_file), parse the HTML text
         # and split it in to the information components needed to
-        # cerate problem structure and library.xml structure
+        # create problem structure and library.xml structure
         # -----------------------------------------------------------------------------
         _par.Parse_HTML(_iof.Read_HTML(HTML_FILE), XML_FILE, PROBLEM_FOLDER)
         print('... done!')

@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# CONSTANT definitions - default valiues for lib generator 
+# CONSTANT definitions - default values for lib generator 
 #---------------------------------------------------------------
 
 # Folder names for input / output 

@@ -3,7 +3,7 @@
 # --------------------------------------------------------------
 # this file is the inventory file for the edx library it holds 
 # the information:  display_name="xxx" org="yyy" library="zzz" 
-# and addintional paramaters as well as the list of all library 
+# and additional paramaters as well as the list of all library 
 # components stored in the corresponding folder.
 # --------------------------------------------------------------
 from lxml import etree
