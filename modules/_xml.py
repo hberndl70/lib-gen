@@ -7,7 +7,7 @@ by using a unified approach for generating XML blocks.
 """
 
 from dataclasses import dataclass
-from typing import List, Union, Dict, Any
+from typing import List, Dict, Optional
 from lxml import etree
 from lxml.builder import E
 import logging
@@ -98,7 +98,7 @@ class XMLElementBuilder:
 class CheckboxProblemGenerator:
     """Main class for generating checkbox problem XML."""
 
-    def __init__(self, config: ProblemConfiguration = None):
+    def __init__(self, config: Optional[ProblemConfiguration] = None):
         """
         Initialize the generator with configuration.
 

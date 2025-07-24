@@ -537,14 +537,16 @@ def validate_environment() -> bool:
     Returns:
         True if environment is valid, False otherwise
     """
-    try:
-        import markdown
-        import lxml
-        from bs4 import BeautifulSoup
-        return True
-    except ImportError as e:
-        logger.error(f"Missing required dependency: {e}")
-        return False
+    required_modules = ['markdown', 'lxml', 'bs4']
+
+    for module_name in required_modules:
+        try:
+            __import__(module_name)
+        except ImportError as e:
+            logger.error(f"Missing required dependency: {e}")
+            return False
+
+    return True
 
 
 if __name__ == "__main__":

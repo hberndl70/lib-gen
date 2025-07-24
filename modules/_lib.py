@@ -8,7 +8,7 @@ library components.
 
 import logging
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Union
+from typing import List, Optional, Union
 from dataclasses import dataclass
 from lxml import etree
 from lxml.builder import E
@@ -190,9 +190,9 @@ class ConfigurationLoader:
             config_data = _iof.FileReader.read_json(config_file_path)
 
             # Extract required fields
-            display_name = config_data.get("DISPLAY_NAME")
-            library = config_data.get("LIBRARY")
-            org = config_data.get("ORG")
+            display_name = config_data.get("DISPLAY_NAME", "")
+            library = config_data.get("LIBRARY", "")
+            org = config_data.get("ORG", "")
 
             # Validate required fields
             missing_fields = []
